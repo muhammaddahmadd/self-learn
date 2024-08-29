@@ -47,3 +47,25 @@ background-color: rgb(78, 78, 255);
 .main input {
   border-radius: 5px;
 }
+
+.list {
+      list-style-type: none;
+    width: 190px;
+    margin: 20px auto;
+    text-align: left;
+    padding: 0px;
+}
+
+.list li {
+  margin: 3px 0px;
+padding: 5px;
+border: 1px solid black;
+border-radius: 6px;
+display: flex;
+justify-content: space-between;
+}
+
+button.del {
+  border-radius: 50%;
+  border: 1px solid grey
+}

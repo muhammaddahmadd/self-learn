@@ -13,17 +13,37 @@ function App() {
     setName(e.target.value)
   }
 
+
   function handleSubmission(e) {
     e.preventDefault();
-    setItems(items => [...items, name])
+    if (!name.length) return;
+    // const inputValue = e.target.value;
+    // const isDuplicate = items.some(item => item.name.toLowerCase() === inputValue);
+    // console.log(isDuplicate)
+    // if (isDuplicate) return;
+    const newItem = {
+      id: Date.now(), 
+      name: name.toLowerCase(),
+    };
+    setItems(items => [...items, newItem])
     setName("");
   }
-console.log(items)
 
+
+
+  function handleDel(id) {
+    const removedItem = items.filter(item => item.id !== id);
+    setItems(removedItem);
+    
+    }
+  
+
+
+  
   return (
     <div className="App">
       <Input items={items} onSubmit={handleSubmission} nameChange={handleName} name={name}/>
-      <List items={items} />
+      <List items={items} onDel={handleDel} />
     </div>
   );
 }
