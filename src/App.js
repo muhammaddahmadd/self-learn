@@ -11,23 +11,28 @@ function App() {
 
   function handleName(e) {
     setName(e.target.value)
+ 
   }
 
 
   function handleSubmission(e) {
     e.preventDefault();
     if (!name.length) return;
-    // const inputValue = e.target.value;
-    // const isDuplicate = items.some(item => item.name.toLowerCase() === inputValue);
-    // console.log(isDuplicate)
-    // if (isDuplicate) return;
+    
     const newItem = {
       id: Date.now(), 
       name: name.toLowerCase(),
     };
+    const check = items.some(item => item.name.toLowerCase() === newItem.name)
+    if (check) return alert("Already in list") 
     setItems(items => [...items, newItem])
     setName("");
+
+   
+    console.log(check)
   }
+
+  
 
 
 
